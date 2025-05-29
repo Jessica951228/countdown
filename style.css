@@ -1,0 +1,88 @@
+h1 {
+  text-align: center;
+  font-size: 40pt;
+}
+
+body {
+  background-color: #f7f7f7;
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  margin-top: 100px;
+  color: #333;
+}
+
+.container {
+  background:mintcream;
+  padding: 50px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.button1 {
+  position: absolute; /* 相對於 #countdown-box */
+  bottom: 30px;       /* 往外拉一點 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: rgb(135, 206, 235)5;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+p{
+    font-size: 20pt;
+}
+
+.button2{
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: rgb(200, 135, 235);
+  border-radius: 200px;
+  font-size: 24pt
+}
+
+body {
+  background-image: url("/back/back.png");
+  background-size:100% 100% ;         
+  background-repeat: no-repeat;   /* 不重複 */
+  background-attachment: fixed;   /* 捲動時背景固定不動 */
+  background-position: center center; /* 居中 */
+  color: #000;                    /* 可調整文字顏色避免被背景吃掉 */
+}
+
+/* 手機螢幕更小時調整字體大小 */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2em;
+    text-align: center;
+  }
+
+  .button {
+    width: 90%;
+    margin: 10px auto;
+    display: block;
+    font-size: 1em;
+  }
+
+  .case-box {
+    padding: 1em;
+    font-size: 1em;
+  }
+
+  audio {
+    width: 90%;
+    margin: 1em auto;
+    display: block;
+  }
+}
