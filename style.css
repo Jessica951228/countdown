@@ -64,25 +64,21 @@ body {
 /* 手機螢幕更小時調整字體大小 */
 @media (max-width: 768px) {
   h1 {
-    font-size: 2em;
-    text-align: center;
+  font-size: clamp(1.5em, 5vw, 2em);
   }
 
-  .button {
-    width: 90%;
-    margin: 10px auto;
-    display: block;
-    font-size: 1em;
+  .button1 {
+  width: auto;
+  max-width: 90%;
+  padding: 10px;
+  font-size: 1em;
   }
 
-  .case-box {
-    padding: 1em;
-    font-size: 1em;
+  .button2 {
+  width: auto;
+  max-width: 90%;
+  padding: 10px;
+  font-size: 1em;
   }
 
-  audio {
-    width: 90%;
-    margin: 1em auto;
-    display: block;
-  }
 }
