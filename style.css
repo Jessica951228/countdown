@@ -63,6 +63,11 @@ body {
 
 /* 手機螢幕更小時調整字體大小 */
 @media (max-width: 768px) {
+  .container {
+  width: clamp(70%, 80%, 90%);
+  max-width: clamp(300px, 500px, 600px);
+}
+
   h1 {
   font-size: clamp(1.5em, 5vw, 2em);
   }
