@@ -5,7 +5,8 @@ function updateCountdown() {
   const diff = examDate - now;
 
   if (diff <= 0) {
-    document.getElementById("countdown").innerText = "考試已經結束！";
+    document.getElementById("countdown").innerText = "加油！祝你能進入心目中的好大學以及好科系❤️";
+    clearInterval(timer); // ✅ 停止倒數
     return;
   }
 
