@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="google-site-verification" content="iY_8zby3x2DdA73IYJaB3yKLdHjQV21JeOtsy3wGzFM" />
+        <meta name="description" content="114分科倒數"/>
+        <meta name="author" content="臻臻"/>
+        <meta name="keywords" content="分科,倒數,大考,勵志,倒數計時器,名言佳句,考試,讀書,鼓勵,加油"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>114分科倒數</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        
+        <!-- 三張圖放在最外層 -->
+        <img src="../back/back1.png" class="corner-img top-left" alt="100">
+        <img src="../back/back2.png" class="corner-img top-right" alt="合格">
+        <img src="../back/back3.png" class="corner-img bottom-left" alt="考卷">
+        <img src="../back/back4.png" class="corner-img bottom-right" alt="大腦">
+
+        <div class="container">
+        <h1>❤️114分科倒數❤️</h1>
+        <h2 id="countdown">計算中...</h2>
+        </div>
+        
+        <div id="countdown"></div>
+
+        <p id="quote">載入語錄中...</p>
+        <div class = "button1" onclick="loadRandomQuote()">➡️鼓勵</div>
+
+        <!-- 固定右下角的按鈕 -->
+        <div class="floating-button" onclick="toggleMenu()">⏱️</div>
+
+        <!-- 隱藏的選單 -->
+        <div class="floating-menu" id="menu">
+        <a href="../html/index2.html">115學測倒數</a>
+        </div>
+
+        <script src="../js/script.js"></script>
+    </body>

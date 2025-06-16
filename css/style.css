@@ -1,0 +1,246 @@
+h1 {  
+  text-align: center;
+  font-size: 40pt;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #f7f7f7;
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  margin-top: 100px;
+  color: #333;
+  overflow-x: auto; 
+  overflow-y: auto; /* 允許垂直滾動 */
+}
+
+.scrollable-container {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.container {
+  background: mintcream;
+  padding: 50px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.button1 {
+  margin-top: 20px;
+  width: 75px !important;
+  height: 75px !important;
+  background-color: rgb(135, 206, 235);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 2;
+}
+
+p {
+  font-size:40pt;
+}
+
+.corner-img {
+  position: absolute;
+  width: 1000px;
+  height: auto;
+  z-index: 0; /* ✅ 調低，避免圖片擋住按鈕 */
+  pointer-events: none; /* ✅ 確保圖片不能擋點擊 */
+}
+
+.top-left {
+  top: 2vw;
+  left: 2vw;
+}
+
+.top-right {
+  top: 2vw;
+  right: 2vw;
+}
+
+.bottom-left {
+  bottom: 2vw;
+  left: 2vw;
+}
+
+.bottom-right {
+  bottom: 2vw;
+  right: 2vw;
+}
+
+.floating-button {
+  position: fixed;
+  bottom: 300px;
+  right: 20px;
+  background-color: #f44336;
+  color: white;
+  font-size: 40px;
+  padding: 12px 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: background-color 0.3s;
+}
+
+.floating-button:hover {
+  background-color: #d32f2f;
+}
+
+.floating-menu {
+  display: none; /* 預設隱藏 */
+  position: fixed;
+  bottom: 70px;  /* 在按鈕上方 */
+  right: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 999;
+}
+
+.floating-menu a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.floating-menu a:hover {
+  background-color: #f0f0f0;
+}
+
+
+/* 手機螢幕更小時調整字體大小 */
+@media (max-width: 500px) {
+  .top-left,
+  .top-right,
+  .bottom-left,
+  .bottom-right {
+    width: 500px;
+  }
+  .container {
+    width: 85%;              /* 不要滿版，保留邊距 */
+    max-width: 280px;        /* 避免撐太寬 */
+    margin: 50px auto;  /* 上、下留空間（避免壓到上圖跟下圖） */
+    padding: 15px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    margin-top: 200px;
+  }
+
+  h1 {
+  font-size: clamp(1.5em, 5vw, 2em);
+  }
+
+   .button1 {
+  position: relative; 
+  bottom: 10px;
+  left:10%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  background-color: rgb(135, 206, 235);
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+p{
+    font-size: 10pt;
+}
+
+}
+
+@media (max-height: 700px) {
+  .container {
+    margin-top: 20px;
+    padding: 10px;
+  }
+
+  .button1{
+    bottom: 5px;
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+    left:10%;
+  }
+
+  p{
+    font-size: 10pt;
+}
+}
+
+@media (min-height: 1000px) {
+  .container {
+    margin-top: 200px;
+  }
+
+  .button1{
+    bottom: 80px;
+    left:10%;
+  }
+
+  p{
+    font-size: 10pt;
+  }
+}
+
+@media (min-width: 1024px) {
+  p {
+    font-size: 30pt;
+  }
+}
+
+/* iPad 直向 */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* 調整這個區間內的樣式 */
+  p {
+    font-size: 30pt;
+  }
+}
+
+/* iPad 橫向 */
+@media only screen and (min-width: 992px) and (max-width: 1024px) {
+  /* 可做其他調整 */
+  p {
+    font-size: 30pt;
+  }
+}
+
+/* 針對中型設備，像是 iPad Air、iPad Pro 11" */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* 調整平板用戶的排版 */
+  p {
+    font-size: 30pt;
+  }
+}
+
+/* 更高解析度（例如 Pro 12.9 吋） */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  /* 類似小筆電的版面可以調整 */
+  p {
+    font-size: 30pt;
+  }
+}
+
