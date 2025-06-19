@@ -104,7 +104,7 @@ p {
 .floating-menu {
   display: none; /* 預設隱藏 */
   position: fixed;
-  bottom: 70px;  /* 在按鈕上方 */
+  bottom: 250px;  /* 在按鈕上方 */
   right: 20px;
   background-color: #ffffff;
   border: 1px solid #ddd;
