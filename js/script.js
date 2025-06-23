@@ -43,5 +43,5 @@ function loadRandomQuote() {
 // 選單切換功能
 function toggleMenu() {
   const menu = document.getElementById("menu");
-  menu.style.display = (menu.style.display === "block") ? "none" : "block";
+  menu.classList.toggle("show");
 }

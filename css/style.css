@@ -1,412 +1,227 @@
-h1 {  
-  text-align: center;
-  font-size: 40pt;
-}
+/* 基礎重置與設定 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-html, body {
-  height: 100%;
-}
+        html, body {
+            height: 100%;
+        }
 
-body {
-  background-color: #f7f7f7;
-  font-family: "Arial", sans-serif;
-  text-align: center;
-  margin-top: 100px;
-  color: #333;
-  overflow-x: auto; 
-  overflow-y: auto; /* 允許垂直滾動 */
-}
+        body {
+            background-color: #f7f7f7;
+            font-family: "Arial", "Microsoft JhengHei", sans-serif;
+            text-align: center;
+            color: #333;
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding: 1rem;
+        }
 
-.scrollable-container {
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
+        /* 主容器 */
+        .container {
+            background: mintcream;
+            padding: clamp(1.5rem, 5vw, 3rem);
+            border-radius: 12px;
+            width: min(95%, 600px);
+            margin: 2rem auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+            min-height: 300px;
+        }
 
-.container {
-  background: mintcream;
-  padding: 200px;
-  border-radius: 12px;
-  width: 100%;
-  max-width: 500px;
-  margin: auto;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  position:relative;
-  z-index: 1;
-  bottom:150px;
-}
+        /* 標題樣式 */
+        h1 {
+            font-size: 35pt;
+            margin-bottom: 1.5rem;
+        }
 
-.button1 {
-  position: absolute;  /* ⚠️ 讓它從 container 定位 */
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 75px;
-  height: 75px;
-  background-color: rgb(135, 206, 235);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 15px;
-  cursor: pointer;
-  z-index: 10;
-}
+       
+        /* 鼓勵按鈕 */
+        .button1 {
+            position: relative;
+            margin: 1.5rem auto 0;
+            width: clamp(60px, 10vw, 80px);
+            height: clamp(60px, 10vw, 80px);
+            background: linear-gradient(135deg, #87ceeb, #4fc3f7);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: clamp(14px, 3vw, 18px);
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(135, 206, 235, 0.3);
+        }
 
-p {
-  font-size:25pt;
-  position: relative;
-  bottom: 200px
-}
+        .button1:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(135, 206, 235, 0.5);
+            background: linear-gradient(135deg, #4fc3f7, #29b6f6);
+        }
 
-.floating-button {
-  position: fixed;
-  bottom: 300px;
-  right: 20px;
-  background-color: #f44336;
-  color: white;
-  font-size: 40px;
-  padding: 12px 16px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 1000;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  transition: background-color 0.3s;
-}
+        .button1:active {
+            transform: scale(0.95);
+        }
 
-.floating-button:hover {
-  background-color: #d32f2f;
-}
+        /* 浮動按鈕 */
+        .floating-button {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: clamp(55px, 7vw, 70px);
+            height: clamp(55px, 7vw, 70px);
+            background: linear-gradient(135deg, #ff5722, #f44336);
+            color: white;
+            font-size: clamp(18px, 3vw, 24px);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(244, 67, 54, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.floating-menu {
-  display: none; /* 預設隱藏 */
-  position: fixed;
-  bottom: 250px;  /* 在按鈕上方 */
-  right: 20px;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  z-index: 999;
-}
+        .floating-button:hover {
+            background: linear-gradient(135deg, #d32f2f, #c62828);
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(244, 67, 54, 0.6);
+        }
 
-.floating-menu a {
-  display: block;
-  color: #333;
-  text-decoration: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-}
+        /* 浮動選單 */
+        .floating-menu {
+            display: none;
+            position: fixed;
+            bottom: 5.5rem;
+            right: 1.5rem;
+            min-width: clamp(140px, 25vw, 200px);
+            background: white;
+            border-radius: 12px;
+            padding: 0.5rem 0;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
 
-.floating-menu a:hover {
-  background-color: #f0f0f0;
-}
+        .floating-menu.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
 
+        .floating-menu a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: clamp(10px, 2.5vw, 14px) clamp(15px, 4vw, 20px);
+            font-size: clamp(13px, 2.5vw, 16px);
+            transition: all 0.2s ease;
+            border-radius: 8px;
+            margin: 0 8px;
+        }
 
-/* 手機螢幕更小時調整字體大小 */
-@media (max-width: 500px) {
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 50px auto;
-  padding: 20px;
-  box-sizing: border-box;
-  position: relative;
-  z-index: 1;
-}
+        .floating-menu a:hover {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #1976d2;
+            transform: translateX(5px);
+        }
 
-h1 {
-  font-size: clamp(1.5rem, 4vw, 3rem);
-  margin-bottom: 1rem;
-}
+        /* 響應式調整 */
+        @media (max-width: 480px) {
+            body {
+                padding: 0.5rem;
+            }
+            
+            .container {
+                margin: 1rem auto;
+                padding: 1rem;
+            }
+            
+            .floating-button {
+                bottom: 1rem;
+                right: 1rem;
+                width: 50px;
+                height: 50px;
+                font-size: 18px;
+            }
+            
+            .floating-menu {
+                bottom: 4rem;
+                right: 1rem;
+                min-width: 120px;
+            }
+        }
 
-p {
-  font-size: clamp(14px, 2.5vw, 18px);
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .container {
+                width: 80%;
+                max-width: 700px;
+                margin: 3rem auto;
+                padding: 2.5rem;
+            }
+            
+            .floating-button {
+                bottom: 2rem;
+                right: 2rem;
+                width: 65px;
+                height: 65px;
+                font-size: 26px;
+            }
+            
+            .floating-menu {
+                bottom: 5.5rem;
+                right: 2rem;
+                min-width: 160px;
+            }
+        }
 
-.button1 {
-  position: relative;
-  bottom: 10px;
-  left: 10%;
-  transform: translateX(-50%);
-  width: clamp(45px, 8vw, 70px);
-  height: clamp(45px, 8vw, 70px);
-  background-color: rgb(135, 206, 235);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: clamp(14px, 3vw, 18px);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
+        @media (min-width: 1025px) {
+            .container {
+                width: 70%;
+                max-width: 800px;
+                margin: 4rem auto;
+                padding: 3rem;
+            }
+            
+            .floating-button {
+                bottom: 2.5rem;
+                right: 2.5rem;
+                width: 70px;
+                height: 70px;
+                font-size: 28px;
+            }
+            
+            .floating-menu {
+                bottom: 6rem;
+                right: 2.5rem;
+                min-width: 180px;
+            }
+        }
 
-.floating-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: clamp(48px, 6vw, 60px);
-  height: clamp(48px, 6vw, 60px);
-  font-size: clamp(18px, 3vw, 24px);
-  z-index: 1000;
-  border-radius: 50%;
-  border: none;
-  background-color: #f44336;
-  color: white;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
+        /* 橫向模式調整 */
+        @media (orientation: landscape) and (max-height: 600px) {
+            .container {
+                margin: 1rem auto;
+                padding: 1rem;
+            }
+            
+            .floating-button {
+                bottom: 1rem;
+                right: 1rem;
+            }
+            
+            .floating-menu {
+                bottom: 3.5rem;
+                right: 1rem;
+            }
+        }
 
-.floating-menu {
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  min-width: clamp(120px, 20vw, 180px);
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  z-index: 1000;
-}
-
-.floating-menu a {
-  display: block;
-  padding: clamp(8px, 2vw, 16px) clamp(12px, 3vw, 20px);
-  font-size: clamp(12px, 2.5vw, 16px);
-  text-decoration: none;
-  color: #333;
-  border-bottom: 1px solid #eee;
-  transition: background-color 0.2s ease;
-}
-
-.floating-menu a:last-child {
-  border-bottom: none;
-}
-}
-
-/* 超小型手機 (< 400px) */
-@media (max-width: 399px) {
-  .container {
-    width: 95%;
-    margin: 30px auto;
-    padding: 12px;
-    margin-top: 120px;
-  }
-  
-  p {
-    font-size: 12px;
-  }
-  
-  .button1 {
-    width: 40px;
-    height: 40px;
-    font-size: 12px;
-    bottom: 5px;
-  }
-}
-
-/* 小型手機 (400px - 599px) */
-@media (min-width: 400px) and (max-width: 599px) {
-  .container {
-    width: 90%;
-    max-width: 350px;
-    margin: 40px auto;
-    padding: 15px;
-    margin-top: 150px;
-  }
-  
-  p {
-    font-size: 14px;
-  }
-  
-  .button1 {
-    width: 55px;
-    height: 55px;
-    font-size: 15px;
-    bottom: 8px;
-  }
-}
-
-/* 大型手機/小平板 (600px - 767px) */
-@media (min-width: 600px) and (max-width: 767px) {
-  .container {
-    width: 85%;
-    max-width: 500px;
-    margin: 60px auto;
-    padding: 20px;
-    margin-top: 180px;
-  }
-  
-  p {
-    font-size: 16px;
-  }
-  
-  .button1 {
-    width: 65px;
-    height: 65px;
-    font-size: 16px;
-    bottom: 15px;
-  }
-  
-  .floating-button {
-    width: 56px;
-    height: 56px;
-    font-size: 22px;
-    bottom: 25px;
-    right: 25px;
-  }
-  
-  .floating-menu {
-    bottom: 90px;
-    right: 25px;
-    min-width: 140px;
-  }
-}
-
-/* 平板直向 (768px - 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .container {
-    width: 80%;
-    max-width: 700px;
-    margin: 80px auto;
-    padding: 30px;
-    margin-top: 200px;
-  }
-  
-  p {
-    font-size: 20px;
-  }
-  
-  .button1 {
-    width: 70px;
-    height: 70px;
-    font-size: 18px;
-    bottom: 20px;
-  }
-  
-  .floating-button {
-    width: 64px;
-    height: 64px;
-    font-size: 26px;
-    bottom: 30px;
-    right: 30px;
-  }
-  
-  .floating-menu {
-    bottom: 100px;
-    right: 30px;
-    min-width: 160px;
-  }
-  
-  .floating-menu a {
-    padding: 14px 18px;
-    font-size: 16px;
-  }
-}
-
-/* 小型筆電/平板橫向 (1025px - 1366px) */
-@media (min-width: 1025px) and (max-width: 1366px) {
-  .container {
-    width: 75%;
-    max-width: 900px;
-    margin: 100px auto;
-    padding: 40px;
-    margin-top: 220px;
-  }
-  
-  p {
-    font-size: 22px;
-  }
-  
-  .button1 {
-    width: 75px;
-    height: 75px;
-    font-size: 20px;
-    bottom: 30px;
-  }
-  
-  .floating-button:hover {
-    transform: scale(1.1);
-    background-color: #d32f2f;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-  }
-  
-  .floating-menu a:hover {
-    background-color: #f5f5f5;
-  }
-}
-
-/* 大型桌面 (> 1366px) */
-@media (min-width: 1367px) {
-  .container {
-    width: 70%;
-    max-width: 1200px;
-    margin: 120px auto;
-    padding: 50px;
-    margin-top: 250px;
-  }
-  
-  p {
-    font-size: 24px;
-  }
-  
-  .button1 {
-    width: 80px;
-    height: 80px;
-    font-size: 22px;
-    bottom: 40px;
-  }
-  
-  .floating-button:hover {
-    transform: scale(1.15);
-    background-color: #d32f2f;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
-  }
-  
-  .floating-menu a:hover {
-    background-color: #f0f0f0;
-    transform: translateX(5px);
-  }
-}
-
-/* 特殊高度調整 */
-@media (max-height: 600px) {
-  .container {
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .button1 {
-    bottom: 5px;
-  }
-}
-
-@media (min-height: 1000px) {
-  .container {
-    margin-top: 250px;
-  }
-  
-  .button1 {
-    bottom: 60px;
-  }
-}
-
-/* 橫向手機特殊處理 */
-@media (max-width: 896px) and (orientation: landscape) and (max-height: 414px) {
-  .container {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
-  }
-  
-  .floating-button {
-    bottom: 15px;
-    right: 15px;
-  }
-  
-  .floating-menu {
-    bottom: 75px;
-    right: 15px;
-  }
-}
+        
