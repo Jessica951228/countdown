@@ -1,6 +1,6 @@
 // 倒數計時功能
 function updateCountdown() {
-  const examDate = new Date("2025-07-12T00:00:00");
+  const examDate = new Date("2025-07-11T00:00:00");
   const now = new Date();
   const diff = examDate - now;
 
