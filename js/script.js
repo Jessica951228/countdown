@@ -1,8 +1,8 @@
 // 倒數計時功能
 function updateCountdown() {
-  const examDate = new Date("2025-07-11T00:00:00+08:00");
-  const now = new Date();
-  const diff = examDate - now;
+const examDate = new Date("2025-07-11T00:00:00");
+const now = new Date();
+const diff = examDate - now;
 
   if (diff <= 0) {
     document.getElementById("countdown").innerText = "加油！祝你能進入心目中的好大學以及好科系❤️";
